@@ -1,0 +1,5 @@
+.employeeList {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 700px
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './employeeCard.css';
 
 const EmployeeCard = (props) => {
   const [role, setRole] = useState(props.initRole);
@@ -14,11 +15,11 @@ const EmployeeCard = (props) => {
   }
 
   return (
-    <div>
+    <div className="employeeCard">
       <h2>I am the card</h2>
       <p>Name:{props.name}</p>
-      
-      <p>Role:{role}</p>
+      <p>Nationality:{props.nationlity}</p>
+      <p style={{color:"red"}}>Role:{role}</p>
       <p>Department:{props.department}</p>
       <p>Salary:{props.salary}</p>
       <p>Start date:{props.startdate}</p>

@@ -1,0 +1,11 @@
+.employeeCard {
+    width: 250px;
+    height: 400px;
+    border-radius: 5px;
+    border: 2px solid salmon;
+    background: rgb(143, 235, 135);
+}
+
+.role {
+    background: yellow;
+}
