@@ -16,16 +16,16 @@ const employees = [
         role: "Student",
         department: "ICT",
         salary: "3000",
-        startdate: "2015.09.12"
+        startdate: "2019-11-12"
     },
     {
         id: 3,
         name: "Neisha Kumari",
         nationlity: "India",
-        role: "Manager",
+        role: "Team Leader",
         department: "ICT",
         salary: "3200",
-        startdate: "2011.01.28"
+        startdate: "2014-11-28"
     },
     {
         id: 4,
@@ -34,7 +34,7 @@ const employees = [
         role: "Auditor",
         department: "ICT",
         salary: "3600",
-        startdate: "2003.06.02"
+        startdate: "2003-06-02"
     },
     {
         id: 5,
@@ -43,7 +43,7 @@ const employees = [
         role: "Cook",
         department: "ICT",
         salary: "1700",
-        startdate: "2017.11.16"
+        startdate: "2009-11-16"
     },
     {
         id: 6,
@@ -52,7 +52,7 @@ const employees = [
         role: "Manager",
         department: "ICT",
         salary: "5600",
-        startdate: "2013.12.26"
+        startdate: "2013-12-26"
     },
     {
         id: 7,
@@ -61,7 +61,7 @@ const employees = [
         role: "Clerk",
         department: "ICT",
         salary: "3700",
-        startdate: "2015.06.21"
+        startdate: "2015-06-21"
     },
     {
         id: 8,
@@ -70,16 +70,16 @@ const employees = [
         role: "Engineer",
         department: "ICT",
         salary: "5600",
-        startdate: "2018.06.12"
+        startdate: "2024-06-12"
     },
     {
         id: 9,
         name: "Jasmin Tendulkar",
-        nationlity: "U.S",
+        nationlity: "U-S",
         role: "Artist",
         department: "ICT",
         salary: "7500",
-        startdate: "2020.08.05"
+        startdate: "2020-08-05"
     },
     {
         id: 10,
@@ -88,7 +88,7 @@ const employees = [
         role: "Chef",
         department: "Head",
         salary: "3600",
-        startdate: "2013.11.09"
+        startdate: "2013-11-09"
     }
 ];
 

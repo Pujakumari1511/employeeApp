@@ -1,6 +1,5 @@
 import './App.css'
-
-import EmployeeList from './components/EmployeeList.jsx'
+import LogInLogOut from './components/logInLogOut/LogInLogOut.jsx';
 import Footer from './components/footer/Footer.jsx'
 import Header from './components/header/Header.jsx'
 
@@ -11,7 +10,7 @@ function App() {
       <div>
         <Header/>
         <main>
-          <EmployeeList />
+          <LogInLogOut />
         </main>
         <Footer/> 
       </div>

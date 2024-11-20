@@ -3,3 +3,7 @@
     justify-content: space-evenly;
     min-width: 700px
 }
+
+.button {
+    margin-bottom: 30px;
+}

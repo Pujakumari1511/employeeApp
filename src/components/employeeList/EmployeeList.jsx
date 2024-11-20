@@ -1,28 +1,24 @@
-import EmployeeCard from '../employeeCard/EmployeeCard.jsx'
-import employees from '../data/employee.js'
 import './employeeList.css'
 
-const EmployeeList = ()=> {
+import employees from "../data/employeesData";
+import EmployeeCard from "../employeeCard/EmployeeCard";
 
+export default function EmployeeList() {
     return (
-
         <div> 
-            <h2>I am the list</h2>
-            <div className='employeeList'>
+            <div className='employeeList employee'>
                 {employees.map((employee) => 
                 <EmployeeCard 
-                name={employee.name}
+                key={employee.id}
+                {...employee}
+              /*   name={employee.name}
                 nationlity={employee.nationlity}
-                initRole={employee.initRole}
+                initRole={employee.role}
                 department={employee.department} 
                 salary={employee.salary} 
-                startdate={employee.startdate}
+                startdate={employee.startdate} */
                 />)}
-            </div>
-              
+            </div>      
         </div>
     )
 }
-
-
-export default EmployeeList;
