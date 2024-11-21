@@ -1,21 +1,11 @@
 import './App.css'
 import LogInLogOut from './components/logInLogOut/LogInLogOut.jsx';
-import Footer from './components/footer/Footer.jsx'
-import Header from './components/header/Header.jsx'
+import { RouterProvider } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 
 function App() {
 
-  return (
-    <>
-      <div>
-        <Header/>
-        <main>
-          <LogInLogOut />
-        </main>
-        <Footer/> 
-      </div>
-    </>
-  );
+  return <RouterProvider router={Router} />
 }
 
 export default App;
