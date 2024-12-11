@@ -1,4 +1,4 @@
-const employees = [
+export const employees = [
     { 
         id: 1,
         name: "Akash Kumar",
@@ -7,7 +7,6 @@ const employees = [
         department: "ICT",
         salary: "4000",
         startdate: "2018-08-01",
-        location: "Pasila"
      },
     {
         id: 2,
@@ -31,7 +30,7 @@ const employees = [
         id: 4,
         name: "Matti Samolainen",
         nationlity: "Finland",
-        role: "Auditor",
+        role: "Frontend Developer",
         department: "ICT",
         salary: "3600",
         startdate: "2003-06-02"
@@ -40,7 +39,7 @@ const employees = [
         id: 5,
         name: "Linda River",
         nationlity: "Astonia",
-        role: "Cook",
+        role: "Frontend Developer",
         department: "ICT",
         salary: "1700",
         startdate: "2009-11-16"
@@ -49,7 +48,7 @@ const employees = [
         id: 6,
         name: "Maria Lainen",
         nationlity: "Norway",
-        role: "Manager",
+        role: "Backend Developer",
         department: "ICT",
         salary: "5600",
         startdate: "2013-12-26"
@@ -58,8 +57,8 @@ const employees = [
         id: 7,
         name: "Diane Lauko",
         nationlity: "Phillipins",
-        role: "Clerk",
-        department: "ICT",
+        role: "Game Design",
+        department: "Game Development",
         salary: "3700",
         startdate: "2015-06-21"
     },
@@ -67,8 +66,8 @@ const employees = [
         id: 8,
         name: "Christy Mariam",
         nationlity: "Sweden",
-        role: "Engineer",
-        department: "ICT",
+        role: "Developer",
+        department: "Mobile App",
         salary: "5600",
         startdate: "2024-06-12"
     },
@@ -76,8 +75,8 @@ const employees = [
         id: 9,
         name: "Jasmin Tendulkar",
         nationlity: "U-S",
-        role: "Artist",
-        department: "ICT",
+        role: "Chef",
+        department: "Junior",
         salary: "7500",
         startdate: "2020-08-05"
     },
@@ -91,5 +90,3 @@ const employees = [
         startdate: "2013-11-09"
     }
 ];
-
-export default employees;

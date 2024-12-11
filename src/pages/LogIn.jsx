@@ -1,9 +1,7 @@
-import './LogInLogOut.css';
-import { useState } from 'react';
-import EmployeeList from '../employeeList/EmployeeList';
+import { useState } from "react";
+import { EmployeeList } from "../components/employeeList/EmployeeList";
 
-
-export default function LogInLogOut(){
+export default function LogIn(){
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const onClickButton = () => {
