@@ -1,9 +1,11 @@
+.btn-promote {
 
-
-.roleColor-primary {
-    background-color: blue;
 }
 
-.roleColor {
-    background-color: red;
+.promote {
+    background-color: orange;
+}
+
+.demote {
+    background-color: #e44343;
 }

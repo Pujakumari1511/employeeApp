@@ -1,9 +1,8 @@
-import './LogInLogOut.css';
 import { useState } from 'react';
-import EmployeeList from '../employeeList/EmployeeList';
+import { EmployeeList } from '../employeeList/EmployeeList';
 
 
-export default function LogInLogOut(){
+export default function LogIn(){
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const onClickButton = () => {
@@ -15,7 +14,7 @@ export default function LogInLogOut(){
             <main>
                 <button className={"button"} onClick={onClickButton}>
                 {isLoggedIn ? "Log out": "Log in"}</button>
-                {isLoggedIn ? <EmployeeList/> : <><p>Please log in to see the list</p></>}   
+                {isLoggedIn ? <EmployeeList /> : <><p>Please log in to see the list</p></>}   
             </main>
         </div>
     )

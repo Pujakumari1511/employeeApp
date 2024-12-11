@@ -1,7 +1,6 @@
 import { useState } from "react";
 import './employeeCard.css';
 import Button from "../buttons/Button";
-import Form from "../Form/Form";
 
 const MessageForStartDate = ({startdate}) => {
   const currentDate = new Date();
@@ -12,25 +11,28 @@ const MessageForStartDate = ({startdate}) => {
     const monthPassed = currentDate.getMonth() - startDate.getMonth();
     if(monthPassed < 6){
       return (
-        <p>Schedule probation review.</p>
+        <p className={"meeting-text"}>Schedule probation review</p>
       )
     }
   } else if(yearPassed % 5 == 0){
     return (
-      <p>Schedule recognition meeting.</p>
+      <p className="meeting-text">Schedule recognition meeting</p>
     )
   }
   return (<></>)
   
 }
 
-const EmployeeCard = ({id, name, nationlity, role, department, salary, startdate}) => {
+const EmployeeCard = ({id, name, nationality, role, department, salary, startdate}) => {
   const [employeeRole, setEmployeeRole] = useState(role);
   const [toggleFormEdit, setToggleFormEdit] = useState(false);
+
+  const [departmentInput, setDepartmentInput] = useState(department);
+  const handleDepartmentChange = (e) => setDepartmentInput(e.target.value);
+
  
-  const clickHandler = () => {
-    
-    if(role === "Team Leader"){
+  const clickHandler = () => { 
+    if(role === "Team Leader" || employeeRole === 'Team Leader'){
         setEmployeeRole(role);
     } else {
         setEmployeeRole("Team Leader");
@@ -39,25 +41,29 @@ const EmployeeCard = ({id, name, nationlity, role, department, salary, startdate
   
   return (
     <div className="employeeCard">
+      <h3 className="card-holder-name">{`${name}${employeeRole === 'Team Leader' ? '  ⭐' : ''}`}</h3>
+      <hr></hr>
       <div className={"card-details"}>
-        <div>
+        <div className={"card-image-container"}>
           <img className={"card-image"} src={`https://robohash.org/${id}?set=set5`}/>
         </div>
         <div>
-          <p>Name: {name}</p>
-          <p>Nationality: {nationlity}</p>
-          <p>Role: {role}</p>
-          <p>Department: {department}</p>
+          <p>Nationality: {nationality}</p>
+          <p>Role: {employeeRole}</p>
+          <p>Department: {toggleFormEdit ? <input value={departmentInput} onChange={handleDepartmentChange}></input> : departmentInput}</p>
           <p>Salary: {salary}</p>
         </div>
       </div>
-      <p>Start date: {startdate}</p>
-      <MessageForStartDate startdate= {startdate}/>
-      <Button onClick={clickHandler} text={role === "Team Leader" ? "Demote" : "Promote ⭐"} 
-      roleColor={role === "Team Leader" ? "primary" : "secondary"}/>
+      <p>{startdate}</p>
 
-      <Button onClick={() => setToggleFormEdit(!toggleFormEdit)} text={toggleFormEdit ? "Save" : "Edit"} />
-      <Form role={role} department={department} location={location} />
+      <div className={"promote-edit"}>
+        <Button onClick={clickHandler} text={employeeRole === "Team Leader" ? "Demote" : "Promote"} 
+        roleColor={employeeRole === "Team Leader" ? "demote" : "promote"}/>
+
+        <Button onClick={() => setToggleFormEdit(!toggleFormEdit)} text={toggleFormEdit ? "Save" : "Edit"} />
+      </div>
+     
+      <MessageForStartDate startdate= {startdate}/>
     </div>
   );
 };

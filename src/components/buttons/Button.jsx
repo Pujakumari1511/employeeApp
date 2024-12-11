@@ -1,6 +1,11 @@
+import './Button.css';
+
 const Button = ({ text, onClick, type="button", roleColor }) => {
     return (
-        <button className={roleColor} type={type} onClick={onClick}>{text}</button>
+        <div className={"btn-promote"}>
+             <button className={roleColor} type={type} onClick={onClick}>{text}</button>
+        </div>
+       
     );
 };
 

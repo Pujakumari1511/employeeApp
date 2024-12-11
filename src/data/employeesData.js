@@ -1,4 +1,4 @@
-const employees = [
+export const employees = [
     { 
         id: 1,
         name: "Akash Kumar",
@@ -7,7 +7,6 @@ const employees = [
         department: "ICT",
         salary: "4000",
         startdate: "2018-08-01",
-        location: "Pasila"
      },
     {
         id: 2,
@@ -91,5 +90,3 @@ const employees = [
         startdate: "2013-11-09"
     }
 ];
-
-export default employees;

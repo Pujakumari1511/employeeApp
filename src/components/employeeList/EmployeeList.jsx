@@ -1,24 +1,32 @@
 import './employeeList.css'
-
-import employees from "../data/employeesData";
+import { useEffect, useState } from 'react';
 import EmployeeCard from "../employeeCard/EmployeeCard";
 
-export default function EmployeeList() {
+export function EmployeeList() {
+    const [employees, setEmployees] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/employees")
+        .then((response) => response.json())
+        .then((data) => {
+            setEmployees(data);
+            setIsLoading(false);
+        });
+    },  []);
     return (
         <div> 
             <div className='employeeList employee'>
-                {employees.map((employee) => 
+                {isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                employees.map((employee) =>
                 <EmployeeCard 
-                key={employee.id}
-                {...employee}
-              /*   name={employee.name}
-                nationlity={employee.nationlity}
-                initRole={employee.role}
-                department={employee.department} 
-                salary={employee.salary} 
-                startdate={employee.startdate} */
-                />)}
-            </div>      
+                    key={employee.id}
+                    {...employee}
+                />)
+            )}
+           </div>      
         </div>
     )
 }

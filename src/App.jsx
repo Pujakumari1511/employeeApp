@@ -1,7 +1,7 @@
 import './App.css'
-import LogInLogOut from './components/logInLogOut/LogInLogOut.jsx';
+import LogInLogOut from './components/LogIn/LogIn.jsx';
 import { RouterProvider } from 'react-router-dom'
-import { Router } from 'react-router-dom'
+import { Router } from './routes/AppRoutes.jsx'
 
 function App() {
 
