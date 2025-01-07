@@ -1,0 +1,31 @@
+.btn {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 8px;
+    font-size: 0.9em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.blueButton {
+    background: #03657d;
+    border: none;
+}
+
+.underline {
+    text-decoration: underline;
+    background: transparent;
+    color: black;
+}
+
+.editCardBtn {
+    background: #9bdcec;
+    color: black;
+}
+
+
+
+
+
+

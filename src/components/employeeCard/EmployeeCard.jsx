@@ -1,34 +1,45 @@
 import { useState } from "react";
-import './employeeCard.css';
-import Button from "../buttons/Button";
+import Button from "../buttons/Button"
+import useEmployeeStatus from "../services/useEmployeeStatus";
+import { useNavigate } from "react-router-dom";
+import styles from './EmployeeCard.module.css';
 
-const MessageForStartDate = ({startdate}) => {
-  const currentDate = new Date();
-  const startDate = new Date(startdate);
-  const yearPassed = currentDate.getFullYear() - startDate.getFullYear();
-
-  if(currentDate.getFullYear() == startDate.getFullYear()){
-    const monthPassed = currentDate.getMonth() - startDate.getMonth();
-    if(monthPassed < 6){
-      return (
-        <p className={"meeting-text"}>Schedule probation review</p>
-      )
-    }
-  } else if(yearPassed % 5 == 0){
-    return (
-      <p className="meeting-text">Schedule recognition meeting</p>
-    )
-  }
-  return (<></>)
-  
+const Icon = ({icon, showIcon, message}) => {
+  return (
+    showIcon &&  
+    <div className={styles.icon}>
+        <p className={styles.iconMessage}>{message}</p>
+        <span>{icon}</span>
+    </div>
+    
+  )
 }
 
-const EmployeeCard = ({id, name, nationality, role, department, salary, startdate}) => {
+const EmployeeCard = ({id, name, role, department, location, startdate}) => {
   const [employeeRole, setEmployeeRole] = useState(role);
   const [toggleFormEdit, setToggleFormEdit] = useState(false);
 
+  const navigate = useNavigate(); 
+
   const [departmentInput, setDepartmentInput] = useState(department);
   const handleDepartmentChange = (e) => setDepartmentInput(e.target.value);
+
+  const [roleInput, setRoleInput] = useState(role);
+  const handleRoleChange = (e) => setRoleInput(e.target.value);
+
+  const [locationInput, setLocationInput] = useState(location);
+  const handleLocationChange = (e) => setLocationInput(e.target.value);
+
+  const { yearPassed, monthPassed, startDate, isProbationPeriod, isRecognitionYear } = useEmployeeStatus(startdate);
+
+  const handleSubmit = () => {
+    setToggleFormEdit(!toggleFormEdit)
+    setEmployeeRole(roleInput);
+  }
+
+  const handleSeeDetails = () => {
+    navigate(`/employee/${id}`);
+  }
 
  
   const clickHandler = () => { 
@@ -40,30 +51,55 @@ const EmployeeCard = ({id, name, nationality, role, department, salary, startdat
   }
   
   return (
-    <div className="employeeCard">
-      <h3 className="card-holder-name">{`${name}${employeeRole === 'Team Leader' ? '  ⭐' : ''}`}</h3>
-      <hr></hr>
-      <div className={"card-details"}>
-        <div className={"card-image-container"}>
-          <img className={"card-image"} src={`https://robohash.org/${id}?set=set5`}/>
-        </div>
+    <div className={styles.employeeCard}>
+      <div className={styles.cardHeader}>
+          <h2>{name}  <span>{employeeRole === "Team Leader" ? "⭐" : ""}</span></h2>
+          <div>
+            <Icon icon={"🎉"} showIcon={isRecognitionYear} message={"Schedule recognition meeting"} />
+            <Icon icon={"⏰"} showIcon={isProbationPeriod} message={"Schedule probation meeting"} />
+          </div>
+          
+          
+      </div>
+      <hr />
+      <div className={styles.cardBody}>
         <div>
-          <p>Nationality: {nationality}</p>
-          <p>Role: {employeeRole}</p>
-          <p>Department: {toggleFormEdit ? <input value={departmentInput} onChange={handleDepartmentChange}></input> : departmentInput}</p>
-          <p>Salary: {salary}</p>
+          <p className={styles.role}>{toggleFormEdit 
+              ? <input className={styles.editCardDetails} value={roleInput} onChange={handleRoleChange} />
+              : roleInput}
+          </p>
+          <p>
+            {toggleFormEdit
+              ? <input className={styles.editCardDetails} value={departmentInput} onChange={handleDepartmentChange} /> 
+              : departmentInput}
+          </p>
+          <p>
+            {toggleFormEdit
+              ? <input className={styles.editCardDetails} value={location} onChange={handleLocationChange} /> 
+              : location}
+          </p>
+          <p>
+            {`${yearPassed === 0 ? monthPassed : yearPassed} ${yearPassed === 0 ? "months" : "years"} experience (${startdate})`}
+          </p>
         </div>
+        <div className={""}>
+          <img className={styles.cardImage} src={`https://robohash.org/${id}?set=set5`}/>
+        </div> 
       </div>
-      <p>{startdate}</p>
+      <div className={styles.cardFooter}>
+          <Button onClick={clickHandler} 
+          roleColor={"blueButton"}>{employeeRole === "Team Leader" ? "Demote" : "Promote"}</Button>
 
-      <div className={"promote-edit"}>
-        <Button onClick={clickHandler} text={employeeRole === "Team Leader" ? "Demote" : "Promote"} 
-        roleColor={employeeRole === "Team Leader" ? "demote" : "promote"}/>
+          <Button onClick={handleSeeDetails} roleColor={"underline"}>See details</Button>
 
-        <Button onClick={() => setToggleFormEdit(!toggleFormEdit)} text={toggleFormEdit ? "Save" : "Edit"} />
-      </div>
+          <Button onClick={handleSubmit} roleColor={"editCardBtn"}>{toggleFormEdit ? "Save" : "Edit"}</Button>
+        </div> 
+
+
+
+   
+
      
-      <MessageForStartDate startdate= {startdate}/>
     </div>
   );
 };

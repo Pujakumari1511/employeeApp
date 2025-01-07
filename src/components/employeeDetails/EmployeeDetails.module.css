@@ -1,0 +1,97 @@
+.header {
+    font-size: 35px;
+}
+
+.detailContainer {
+    text-align: left;
+    margin: 0 auto;
+    width: 60%;
+    background: #d9ecf1;
+    border-radius: 5px;
+    padding: 20px;
+    @media screen and (max-width:800px) {
+        width: 80%;
+    }
+}
+
+.employeeHeader {
+    display: flex;
+    gap: 30px;
+}
+
+.employeeImage {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #03657d;
+    border-radius: 50%;
+}
+
+.employeeName {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.employeeName h2, p{
+    margin: 0;
+}
+
+.employeeName p {
+    background: rgb(110, 179, 7);
+    color: white;
+    border-radius: 10px;
+    padding: 0 5px;
+    font-size: 15px;
+}
+
+.employeeRole {
+    font-weight: 500;
+    color: #4d4a4a;
+}
+
+.employeeSkills {
+    display: inline-block;
+    margin: 5px 5px 0 0;
+    padding: 0 5px;
+    border: 1px solid black;
+    background: #948d8d;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.employeeBody {
+    margin-top: 20px;
+
+    @media screen and (max-width:600px) {
+        table, th, td {
+            display: block;
+        }
+        td {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.tableData {
+    background-color: #aae3ef;
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;  
+}
+
+.employeeBody h3 {
+    margin: 10px 0;
+}
+
+.backBtnEmpDetails {
+    text-align: center;  
+}
+
+
+
+
+
+

@@ -1,37 +1,40 @@
-.form-container {
-    width: 500px;
-    height: 550px;
-    border: 1px solid gray;
-    background: lightgrey;
+.formContainer {
+    background: #d9ecf1;
+    width: 40%;
     margin-top: 50px;
     border-radius: 20px;
     padding: 20px 10px;
+    font-size: 18px;  
+    margin: auto; 
     
 }
 
-.form-row {
+.formRow {
     height: 50px;
     padding-bottom: 15px;
     margin-bottom: 30px;
     text-align: left;
 }
 
-.form-row input {
+.formRow input, select {
     height: 80%;
-    width: 50%;
+    width: 90%;
     margin-top: 10px;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: rgb(181, 179, 179);
     color: black;
+}
+
+.formRow label{
+    text-align: left;
     font-size: 20px;
 }
 
-.form-row label{
-    text-align: left;
-    font-size: 25px;
-}
-
-.submit-button {
+.submitButton {
+    background: #03657d;
     margin-top: 40px;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
 }
