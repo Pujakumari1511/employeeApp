@@ -1,17 +1,18 @@
 import { NavLink } from "react-router-dom";
-import './Header.css'
+import styles from './Header.module.css'
 
-export const Header = () => {
+export const Header = ({isLoggedin, logout}) => {
     return (
-        <div className={"header"}>
+        <div className={styles.header}>
             <h1>Employee App</h1>
-            <nav>
+            
+            {isLoggedin && <nav>
                 <ul style={{marginRight:"50px"}}>
                     <li><NavLink to="new">Add new</NavLink></li>
                     <li><NavLink to="employees">Employees</NavLink></li>
-                    <li><NavLink to="login">LogIn</NavLink></li>
+                    <li><NavLink onClick={logout} to="/">Log out</NavLink></li>
                 </ul>
-            </nav>
+            </nav>}
         </div>
     )
 }

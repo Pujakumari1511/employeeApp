@@ -2,8 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../pages/Root";
 import { List } from "../pages/List";
 import { ErrorPage } from "../pages/ErrorPage";
-import LogIn from "../pages/LogIn";
-import { Form } from "../pages/Form";
+import { LoginForm } from '../pages/Login/LoginForm'
+import { Form } from "../pages/Form/Form";
+import { EmployeeDetails } from "../components/employeeDetails/EmployeeDetails";
 
 
 export const Router = createBrowserRouter([
@@ -13,8 +14,9 @@ export const Router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children:[
             {path: 'employees', element: <List />},
-            {path: 'login', element: <LogIn />},
-            {path: 'new', element: <Form />}
+            {path: 'login', element: <LoginForm />},
+            {path: 'new', element: <Form />},
+            {path: 'employee/:id', element: <EmployeeDetails />}
             
         ]
     },

@@ -2,30 +2,66 @@
   "employees": [
     {
       "id": "1",
-      "name": "Akash Kumar",
+      "name": "Aniket Kumar",
       "nationality": "India",
-      "role": "Developer",
-      "department": "ICT",
+      "role": "Team Leader",
+      "department": "Mobile Development",
       "salary": "4000",
-      "startdate": "2018-08-01"
+      "startdate": "2015-08-01",
+      "location": "Pasila",
+      "email": "aniket.kumar@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Full Time",
+      "skills": [
+        "JavaScript",
+        "React",
+        "HTML",
+        "CSS"
+      ],
+      "manager": "Aarav Kashyap",
+      "status": "Active"
     },
     {
       "id": "2",
-      "name": "Puja Kumari",
+      "name": "Priyanka Kumari",
       "nationality": "India",
-      "role": "Student",
-      "department": "ICT",
+      "role": "Backend Development",
+      "department": "Web Development",
       "salary": "3000",
-      "startdate": "2019-11-12"
+      "startdate": "2019-11-12",
+      "location": "Pasila",
+      "email": "priyanka.kumari@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Full Time",
+      "skills": [
+        "JavaScript",
+        "React",
+        "HTML",
+        "CSS"
+      ],
+      "manager": "Saket Thakur",
+      "status": "Active"
     },
     {
       "id": "3",
-      "name": "Neisha Kumari",
+      "name": "Nishu Kumari",
       "nationality": "India",
-      "role": "Team Leader",
-      "department": "ICT",
+      "role": "Full Stack Development",
+      "department": "Game Development",
       "salary": "3200",
-      "startdate": "2014-11-28"
+      "startdate": "2014-11-28",
+      "location": "Espoo",
+      "email": "nishu.kumari@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Full Time",
+      "skills": [
+        "JavaScript",
+        "React",
+        "HTML",
+        "CSS"
+      ],
+      "manager": "Shreya Kashyap",
+      "status": "Active"
     },
     {
       "id": "4",
@@ -34,7 +70,18 @@
       "role": "Frontend Developer",
       "department": "ICT",
       "salary": "3600",
-      "startdate": "2003-06-02"
+      "startdate": "2020-06-02",
+      "location": "Vantaa",
+      "email": "Mattti.samolainen@gmail.com",
+      "phone": "+358324458889",
+      "employmentType": "Part Time",
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js"
+      ],
+      "manager": "Rikala Mäkinen",
+      "status": "Active"
     },
     {
       "id": "5",
@@ -43,7 +90,19 @@
       "role": "Frontend Developer",
       "department": "ICT",
       "salary": "1700",
-      "startdate": "2009-11-16"
+      "startdate": "2024-9-16",
+      "location": "Ruoholahti",
+      "email": "linda.river@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Full Time",
+      "skills": [
+        "Mobile app",
+        "Python",
+        "HTML",
+        "CSS"
+      ],
+      "manager": "Saara Saarinen",
+      "status": "Active"
     },
     {
       "id": "6",
@@ -52,70 +111,113 @@
       "role": "Backend Developer",
       "department": "ICT",
       "salary": "5600",
-      "startdate": "2013-12-26"
+      "startdate": "2013-12-26",
+      "location": "Pasila",
+      "email": "maria.lainen@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Contractor",
+      "skills": [
+        "Go",
+        "Java",
+        "HTML",
+        "CSS"
+      ],
+      "manager": "Päivi saarinen",
+      "status": "Active"
     },
     {
       "id": "7",
       "name": "Diane Lauko",
       "nationality": "Phillipins",
-      "role": "Game Design",
+      "role": "Game Programming",
       "department": "Game Development",
       "salary": "3700",
-      "startdate": "2015-06-21"
+      "startdate": "2015-06-21",
+      "location": "Pasila",
+      "email": "diane.lauko@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Full Time",
+      "skills": [
+        "JavaScript",
+        "React"
+      ],
+      "manager": "Päivi Saarinen",
+      "status": "Active"
     },
     {
       "id": "8",
       "name": "Priyanka Mariam",
       "nationality": "Sweden",
-      "role": "Developer",
+      "role": "UX/UI Design",
       "department": "Mobile App",
       "salary": "5600",
-      "startdate": "2024-06-12"
+      "startdate": "2024-06-12",
+      "location": "Pasila",
+      "email": "priyanka.mariam@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Full Time",
+      "skills": [
+        "UX/UI Design",
+        "Figma",
+        "Adobe XD"
+      ],
+      "manager": "Jani Karpekka",
+      "status": "Active"
     },
     {
       "id": "9",
       "name": "Jasmin Tendulkar",
       "nationality": "U-S",
-      "role": "Chef",
-      "department": "Junior",
+      "role": "Frontend developer",
+      "department": "Web development",
       "salary": "7500",
-      "startdate": "2020-08-05"
+      "startdate": "2020-08-05",
+      "location": "Pasila",
+      "email": "jasmin.tendulkar@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Full Time",
+      "skills": [
+        "UX/UI Design",
+        "Figma",
+        "Adobe XD"
+      ],
+      "manager": "Jani Karpekka",
+      "status": "Active"
     },
     {
       "id": "10",
       "name": "Ankur Kumar",
       "nationality": "India",
-      "role": "Chef",
-      "department": "Head",
+      "role": "Animation Developer",
+      "department": "Game Development",
       "salary": "3600",
-      "startdate": "2013-11-09"
+      "startdate": "2013-11-09",
+      "location": "Pasila",
+      "email": "ankur.kumar@gmail.com",
+      "phone": "+91324458889",
+      "employmentType": "Part Time",
+      "skills": [
+        "UX/UI Design",
+        "Figma",
+        "Adobe XD"
+      ],
+      "manager": "Jani Karpekka",
+      "status": "Active"
     },
     {
-      "id": "efce",
-      "name": "sdff",
-      "role": "dffgf",
-      "nationality": "gdfgh",
-      "department": "fgfdgf",
-      "salary": "fgdgr",
-      "startdate": "2024-12-21"
-    },
-    {
-      "id": "b2c8",
-      "name": "sdet",
-      "role": "rfdfggf",
-      "nationality": "dfbgbg",
-      "department": "cvvbb",
-      "salary": "gbgn",
-      "startdate": "2024-12-07"
-    },
-    {
-      "id": "8284",
-      "name": "xcvv",
-      "role": "vnnhneret",
-      "nationality": "fgrrfgth",
-      "department": "fgfghg",
-      "salary": "vfhgh",
-      "startdate": "2024-11-29"
+      "id": "2674",
+      "name": "Gayatri Kumari",
+      "role": "Backend Developer",
+      "nationality": "Indian",
+      "department": "Mobile Development",
+      "salary": "3000",
+      "startdate": "2019-07-12",
+      "location": "Mumbai",
+      "email": "gayatri.kumari234@gmail.com",
+      "phone": "2334455676",
+      "employmentType": "Contract",
+      "skills": "Python, node, java, c++",
+      "manager": "Rakesh Sharma"
     }
   ]
 }

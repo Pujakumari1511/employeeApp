@@ -1,9 +1,9 @@
-import './Button.css';
+import styles from './Button.module.css';
 
-const Button = ({ text, onClick, type="button", roleColor }) => {
+const Button = ({ children, onClick, type="button", roleColor }) => {
     return (
-        <div className={"btn-promote"}>
-             <button className={roleColor} type={type} onClick={onClick}>{text}</button>
+        <div>
+             <button className={`${styles.btn} ${styles[roleColor]}`} type={type} onClick={onClick}>{children}</button>
         </div>
        
     );
