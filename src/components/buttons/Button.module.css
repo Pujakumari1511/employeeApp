@@ -22,6 +22,6 @@
 }
 
 .editCardBtn {
-    background: #9bdcec;
+    background: var(--tertiary-color);
     color: black;
 }

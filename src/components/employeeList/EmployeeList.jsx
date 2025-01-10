@@ -2,6 +2,7 @@ import styles from './EmployeeList.module.css'
 import { useEffect, useState } from 'react';
 import EmployeeCard from "../employeeCard/EmployeeCard";
 import useAxios from "../../hooks/useAxios";
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 
 export function EmployeeList() {
     const { data: employee, loading, read } = useAxios("http://localhost:3001");  // custom hook for axios
@@ -14,6 +15,7 @@ export function EmployeeList() {
     useEffect(() => {  // get employees
         read("/employees");
     },  [fetchEmployees]);
+    useScrollToTop();
 
     return (
         <div> 

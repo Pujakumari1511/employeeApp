@@ -90,7 +90,7 @@
     display: none;
     position: absolute;
     right: 100%;
-    background: beige;
+    background: var(--tertiary-color);
     font-size: 15px;
     width: 220px;
     border-radius: 5px;
