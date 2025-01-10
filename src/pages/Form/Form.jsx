@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './Form.module.css'
 import axios from 'axios';
+import Button from "../../components/buttons/Button";
+import { useScrollToTop } from "../../hooks/useScrollToTop";
 
-export const Form = ({}) => {
-    const [isLoading, setIsLoading] = useState(true)
-    const [formData, setFormData] = useState({
+export const Form = ({}) => {  // form component for add new employee
+    const [formData, setFormData] = useState({  
         name: "",
         role: "",
         nationality: "",
@@ -13,17 +14,24 @@ export const Form = ({}) => {
         startdate: ""
     })
 
-    const handleChange = (e) => {
+    const handleChange = (e) => {  // handle change for form data
         const {name, value} = e.target;
-        setFormData((prevState) => ({...prevState, [name]: value}))
+        if(name === "skills"){  // handle skills array
+            setFormData((prevState) => ({...prevState, skills: value.split(",")}))
+        }
+        else{
+            setFormData((prevState) => ({...prevState, [name]: value}))
+        }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => {  // handle submit for form data
         e.preventDefault();
         addEmployee(formData)
     }
 
-    const addEmployee = (data) => {
+    useScrollToTop();
+
+    const addEmployee = (data) => {  // add employee
         console.log(data);
         axios.post("http://localhost:3001/employees", data, {
             headers: {
@@ -125,8 +133,7 @@ export const Form = ({}) => {
                         <option value="On Leave">On Leave</option>
                     </select>
                 </div>
-                <button className={styles.submitButton} type="submit">Submit</button>
-                
+                <Button className={styles.submitButton} roleColor={"blueButton"} type="submit">Submit</Button>   
             </form>   
         </div>
     )

@@ -1,7 +1,7 @@
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: #0587a7;
+    background-color: var(--header-color);
     text-align: left;
     padding-left: 1rem;
     color: white;  
@@ -9,5 +9,12 @@
     z-index: 10;
     top: 0;
     width: 100%; 
+}
+
+.header h1 {
+    font-size: 3rem;
+    @media screen and (max-width:640px) {
+        font-size: 2rem;
+    }
 }
 

@@ -1,32 +1,31 @@
-import './employeeList.css'
+import styles from './EmployeeList.module.css'
 import { useEffect, useState } from 'react';
 import EmployeeCard from "../employeeCard/EmployeeCard";
-import useAxiosRequest from "../services/useAxios";
+import useAxios from "../../hooks/useAxios";
 
 export function EmployeeList() {
-    // const [employees, setEmployees] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
-    const { data, error, loading, read } = useAxiosRequest("http://localhost:3001");
+    const { data: employee, loading, read } = useAxios("http://localhost:3001");  // custom hook for axios
+    const [fetchEmployees, setFetchEmployees] = useState(false);  // state for fetching employees
 
-    useEffect(() => {
+    const reFetchEmployees = () => { 
+        setFetchEmployees(!fetchEmployees);
+    }
+
+    useEffect(() => {  // get employees
         read("/employees");
-        /* fetch("http://localhost:3001/employees")
-        .then((response) => response.json())
-        .then((data) => {
-            setEmployees(data);
-            setIsLoading(false);
-        }); */
-    },  []);
+    },  [fetchEmployees]);
+
     return (
         <div> 
-            <div className='employeeList employee'>
+            <div className={`${styles.employeeList} ${styles.employee}`}>
                 {loading ? (
                     <p>Loading...</p>
                 ) : (
-                    data && data.map((employee) =>
+                    employee && employee.map((employee) =>
                 <EmployeeCard 
                     key={employee.id}
-                    {...employee}
+                    employee={employee}
+                    reFetchEmployees={reFetchEmployees}
                 />)
             )}
            </div>      

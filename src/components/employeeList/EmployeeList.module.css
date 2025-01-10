@@ -1,0 +1,19 @@
+
+.employeeList {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    min-width: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.employee {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+.button {
+    margin-bottom: 30px;
+}

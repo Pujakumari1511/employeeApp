@@ -9,8 +9,10 @@
 }
 
 .blueButton {
-    background: #03657d;
+    background: var(--primary-color);
     border: none;
+    color: white;
+    padding: 10px;
 }
 
 .underline {
@@ -23,9 +25,3 @@
     background: #9bdcec;
     color: black;
 }
-
-
-
-
-
-
