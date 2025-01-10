@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
-import useAxiosRequest from "../services/useAxios";
+import useAxios from "../../hooks/useAxios";
 import styles from './EmployeeDetails.module.css';
 import Button from "../buttons/Button";
 import { useNavigate, useParams } from "react-router-dom";
+import { useScrollToTop } from "../../hooks/useScrollToTop";
 
 
-export const EmployeeDetails = ({}) => {
-    const { data: employee, error, loading, read } = useAxiosRequest("http://localhost:3001");
+export const EmployeeDetails = ({}) => {  // employee details component
+    const { data: employee, read } = useAxios("http://localhost:3001");
     
     const { id } = useParams();
     const navigate = useNavigate();
 
-    useEffect(() => {
+    useScrollToTop();  // custom hook for scroll to top
+
+    useEffect(() => {  // get employee details
         read(`/employees/${id}`);
     }, [id]);
 
@@ -20,7 +23,6 @@ export const EmployeeDetails = ({}) => {
     }
     return (
         <div>
-            <h2 className={styles.header}>Employee Details</h2>
             {employee &&    
                 <div className={styles.detailContainer}>
                     <div className={styles.employeeHeader}>
@@ -47,6 +49,7 @@ export const EmployeeDetails = ({}) => {
                                     <th>Work location</th>
                                     <td>{employee.location}</td>
                                 </tr>
+                            <tbody>
                                 <tr>
                                     <th>Manager</th>
                                     <td>{employee.manager}</td>
@@ -59,6 +62,7 @@ export const EmployeeDetails = ({}) => {
                                     <th>Salary</th>
                                     <td>€{employee.salary}</td>
                                 </tr>
+                            </tbody>
                         </table>
                         <h3>Personal information</h3>
                         <p><b>Email: </b>{employee.email}</p>

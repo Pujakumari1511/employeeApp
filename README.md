@@ -1,54 +1,84 @@
-# reflect on what you have practiced
+# Employee App
 
-- Create a EmployeeApp project
-- Connect it to GitHub
+This project is a simple Employee application built using React.js. It allows users to manage employee data, including adding new employees, viewing employee details, and updating employee information.
 
-# Organize the src folder
+## Features
 
-- Create component folder, and inside component folder, create EmployeeCard and EmployeeList folder.
-- Create css file and jsx file inside EmployeeCard and EmployeeList
+- **User Authentication:** Basic login functionality with a username and password.
+- **Employee Management:**
+  - **Add Employees:** Create new employee entries with details such as name, role, department, location, and more.
+  - **View Employees:** Display a list of employees with key information and interactive cards.
+  - **Edit Employees:** Update employee details (role, department, location) directly on the cards.
+  - **Promote/Demote Employees:** Change employee status with a dedicated button.
+  - **Employee Details:** View detailed information about individual employees.
+- **Work Anniversary/Probation Reminders:** Display reminders for employee work anniversaries (5, 10, 15 years) and probation periods.
+- **Data Persistence:** Utilizes JSON Server for a mock backend to store and retrieve employee data.
+- **Clean Code Practices:**
+  - Destructuring for improved code readability.
+  - Custom hooks for reusable logic.
+  - Modular CSS for better styling management.
 
-# Add props to EmployeeCard
+## Project Structure
 
-- Pass name, role, department, salary, Nationality, startdate
-- Add useState in EmployeeCard to manage the role, initializing it with role.
+- **components:** Houses reusable UI components (EmployeeList, EmployeeCard, Button, etc.).
+- **pages:** Contains individual application pages (Form, Login, ErrorPage, Root, List).
+- **hooks:** Stores custom hooks for application-specific logic (e.g., employee status).
 
-# Make a function of clickHandler:
+## Getting Started
 
-- If the role is "Team Leader", change it back to the role.
-- If the role is not "Team Leader", set it to "Team Leader"
-- Connect the clickhandler function to the button's click.
+1. **Clone the repository:**
 
-# Week 2
+   ```bash
+   git clone <repository_url>
 
-## Create employees data array
+   ```
 
-- Create 10 employees data array
+2. **Install dependencies:**
 
-# Display employees list and add login functionality
+   ```bash
+   cd employee-app
+   npm install
+   ```
 
-1. Import the employee array into your EmployeesList component.
-2. Map over the array to display each employees details in the EmployeesList component.
-3. Ensure that the list displays correctly with no errors or warnings in the console.
-4. Implement a fake “Log In” functionality:
-   - By default, show a "Log In" button and a message to log in to see the list.
-   - After logging in, display the list of employees.
-   - Toggle the button text between "Log In" and "Log Out" based on login state.
+3. **Start the development server:**
 
-# Add "Team Lead" promotion functionality
+   ```bash
+   npm run dev
+   ```
 
-1. Modify the "Team Lead" functionality in each EmployeeCard.
-2. Display a star icon (⭐) on the employees card only if the employee is promoted to "Team Lead."
-3. Use conditional rendering for the promotion button
-   - Display "Promote to Team Lead" if the employee is not a Team Lead.
-   - Display "Demote from Team Lead" if the employee is already a Team Lead.
+4. **Login Credentials:**
+   `puja/1234`
 
-# Display years worked and add reminders
+## Weekly Updates
 
-1. In EmployeeCard, calculate and display years worked based on each employee's startDate.
-2. Add reminders based on the years worked:
-   - Anniversary Reminder: If yearsWorked is exactly 5, 10, 15, etc., display a celebration icon and a subtle message, "Schedule recognition meeting."
-   - Probation Reminder: If yearsWorked is less than 0.5 (6 months), display a notification icon and a message, "Schedule probation review."
-3. Make sure your data includes:
-   - Employee with 5, 10, or 15 years of service for testing the recognition reminder.
-   - Employee with less than 6 months of service for testing the probation review reminder.
+# Week 1:
+
+- Created the basic Vite app structure.
+- Developed initial components: EmployeeList and EmployeeCard.
+- Implemented basic data passing between components.
+- Added "Promote" and "Demote" buttons with basic functionality.
+
+# Week 2:
+
+- Added a simple fake login functionality.
+- Implemented a feature to display work anniversary reminders (5, 10, 15 years) and probation reminders.
+
+# Week 3:
+
+- Added an "Edit" button to allow users to modify employee roles, departments, and locations.
+- Improved code readability by using destructuring.
+- Created a reusable Button component for consistent styling.
+
+# Week 4:
+
+- Organized the project by creating a "pages" folder.
+- Implemented separate pages for Form, Login, Error Handling, Root, and List.
+- Developed a custom hook for managing employee status.
+
+# Week 5:
+
+- Integrated JSON Server for a mock backend to store employee data.
+- Replaced array-based data management with API calls.
+- Created a form to add new employees to the list.
+- Added a "See Details" button to view individual employee information.
+- Migrated to modular CSS for improved styling.

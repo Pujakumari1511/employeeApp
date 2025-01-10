@@ -1,105 +1,109 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../buttons/Button"
-import useEmployeeStatus from "../services/useEmployeeStatus";
+import useEmployeeStatus from "../../hooks/useEmployeeStatus";
 import { useNavigate } from "react-router-dom";
 import styles from './EmployeeCard.module.css';
+import useAxios from "../../hooks/useAxios";
 
-const Icon = ({icon, showIcon, message}) => {
+const Icon = ({icon, showIcon, message}) => {  //icon for recognition year and probation period
   return (
     showIcon &&  
     <div className={styles.icon}>
         <p className={styles.iconMessage}>{message}</p>
         <span>{icon}</span>
-    </div>
-    
+    </div> 
   )
 }
 
-const EmployeeCard = ({id, name, role, department, location, startdate}) => {
-  const [employeeRole, setEmployeeRole] = useState(role);
-  const [toggleFormEdit, setToggleFormEdit] = useState(false);
+const EmployeeCard = ({employee, reFetchEmployees}) => {  // employee card component
 
   const navigate = useNavigate(); 
 
-  const [departmentInput, setDepartmentInput] = useState(department);
-  const handleDepartmentChange = (e) => setDepartmentInput(e.target.value);
+  const [isEditingForm, setIsEditingForm] = useState(false);  // state for editing car details
+  const [formData, setFormData] = useState({
+    role: employee.role,
+    department: employee.department,
+    location: employee.location,
+  });
 
-  const [roleInput, setRoleInput] = useState(role);
-  const handleRoleChange = (e) => setRoleInput(e.target.value);
-
-  const [locationInput, setLocationInput] = useState(location);
-  const handleLocationChange = (e) => setLocationInput(e.target.value);
-
-  const { yearPassed, monthPassed, startDate, isProbationPeriod, isRecognitionYear } = useEmployeeStatus(startdate);
-
-  const handleSubmit = () => {
-    setToggleFormEdit(!toggleFormEdit)
-    setEmployeeRole(roleInput);
+  const handleChange = (e) => {  // handle change for editing card details
+    const {name, value} = e.target;
+    setFormData((prevState) => ({...prevState, [name]: value}))
   }
 
-  const handleSeeDetails = () => {
-    navigate(`/employee/${id}`);
+  const { yearPassed, monthPassed, isProbationPeriod, isRecognitionYear } = useEmployeeStatus(employee.startdate);  // custom hook for employee status
+
+  const {update} = useAxios("http://localhost:3001");  // custom hook for axios
+
+  const handleSubmit = () => {  // handle submit for editing card details
+    if(isEditingForm){
+      update(`/employees/${employee.id}`, formData)
+      .then(() => reFetchEmployees());
+    }
+    setIsEditingForm(!isEditingForm);
+  }
+
+  const handleSeeDetails = () => {  // see details for employee
+    navigate(`/employee/${employee.id}`);
   }
 
  
-  const clickHandler = () => { 
-    if(role === "Team Leader" || employeeRole === 'Team Leader'){
-        setEmployeeRole(role);
-    } else {
-        setEmployeeRole("Team Leader");
-    } 
-  }
+  const handlePromote = () => {   // promote or demote team leader
+    update(`/employees/${employee.id}`, {teamLeader: !employee.teamLeader})
+    .then(() => reFetchEmployees());
+  };
   
+  const departmentColor = {
+    "web development" : "#FFD700",
+    "game development": "#db08ea",
+    "ict": "#72e394",
+    "mobile app": "#3911ef",
+  }
   return (
-    <div className={styles.employeeCard}>
+    <div className={styles.employeeCard} style={{borderTop: `5px solid ${departmentColor[employee.department.toLowerCase()] || "red"}`}}>
       <div className={styles.cardHeader}>
-          <h2>{name}  <span>{employeeRole === "Team Leader" ? "⭐" : ""}</span></h2>
+          <div className={styles.headerTitle}>
+            <h2>{employee.name}</h2>
+            <Icon icon={"⭐"} showIcon={employee.teamLeader} message={"Team Leader"} />
+          </div>
           <div>
             <Icon icon={"🎉"} showIcon={isRecognitionYear} message={"Schedule recognition meeting"} />
             <Icon icon={"⏰"} showIcon={isProbationPeriod} message={"Schedule probation meeting"} />
           </div>
-          
-          
       </div>
       <hr />
       <div className={styles.cardBody}>
         <div>
-          <p className={styles.role}>{toggleFormEdit 
-              ? <input className={styles.editCardDetails} value={roleInput} onChange={handleRoleChange} />
-              : roleInput}
+          <p className={styles.role}>{isEditingForm 
+              ? <input className={styles.editCardDetails} name="role" value={formData.role} onChange={handleChange} />
+              : employee.role}
           </p>
           <p>
-            {toggleFormEdit
-              ? <input className={styles.editCardDetails} value={departmentInput} onChange={handleDepartmentChange} /> 
-              : departmentInput}
+            {isEditingForm
+              ? <input className={styles.editCardDetails} name="department" value={formData.department} onChange={handleChange} /> 
+              : employee.department}
           </p>
           <p>
-            {toggleFormEdit
-              ? <input className={styles.editCardDetails} value={location} onChange={handleLocationChange} /> 
-              : location}
+            {isEditingForm
+              ? <input className={styles.editCardDetails} name="location" value={formData.location} onChange={handleChange} /> 
+              : employee.location}
           </p>
           <p>
-            {`${yearPassed === 0 ? monthPassed : yearPassed} ${yearPassed === 0 ? "months" : "years"} experience (${startdate})`}
+            {`${yearPassed === 0 ? monthPassed : yearPassed} ${yearPassed === 0 ? "months" : "years"} experience (${employee.startdate})`}
           </p>
         </div>
         <div className={""}>
-          <img className={styles.cardImage} src={`https://robohash.org/${id}?set=set5`}/>
+          <img className={styles.cardImage} src={`https://robohash.org/${employee.id}?set=set5`}/>
         </div> 
       </div>
       <div className={styles.cardFooter}>
-          <Button onClick={clickHandler} 
-          roleColor={"blueButton"}>{employeeRole === "Team Leader" ? "Demote" : "Promote"}</Button>
+          <Button onClick={handlePromote} 
+          roleColor={"blueButton"}>{employee.teamLeader ? "Demote" : "Promote"}</Button> 
 
           <Button onClick={handleSeeDetails} roleColor={"underline"}>See details</Button>
 
-          <Button onClick={handleSubmit} roleColor={"editCardBtn"}>{toggleFormEdit ? "Save" : "Edit"}</Button>
+          <Button onClick={handleSubmit} roleColor={"editCardBtn"}>{isEditingForm ? "Save" : "Edit"}</Button>
         </div> 
-
-
-
-   
-
-     
     </div>
   );
 };

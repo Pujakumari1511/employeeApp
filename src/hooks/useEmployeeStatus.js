@@ -1,6 +1,5 @@
-
-const useEmployeeStatus = (startdate) => {
-    const startDate = new Date(startdate);
+const useEmployeeStatus = (startdate) => {  
+    const startDate = new Date(startdate);  
     if (isNaN(startDate)) {
         console.error("Invalid start date");
         return { error: "Invalid start date" };

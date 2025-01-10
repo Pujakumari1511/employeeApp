@@ -7,8 +7,20 @@
 
 .loginForm {
     background-color: #bdd8de;
-    border: 1px solid black;
+    border: 1px solid #03657d;
     border-radius: 10px;
+    position: fixed;
+    padding: 10px;
+    height: 284px;
+    align-content: center;
+}
+
+.loginError {
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    left: 30%;
+    top: 5%;
 }
 
 .loginContainer label {
@@ -20,8 +32,7 @@
     width: 300px;
     height: 40px;
     margin: 20px;
-    background: #8a8989;
-    color: black;
+    color: #333;
     border: none;
 }
 

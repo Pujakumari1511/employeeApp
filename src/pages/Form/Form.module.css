@@ -1,12 +1,11 @@
 .formContainer {
     background: #d9ecf1;
     width: 40%;
-    margin-top: 50px;
+    border: 2px solid #26adcf;
     border-radius: 20px;
     padding: 20px 10px;
     font-size: 18px;  
-    margin: auto; 
-    
+    margin: auto;  
 }
 
 .formRow {
@@ -19,7 +18,6 @@
 .formRow input, select {
     height: 80%;
     width: 90%;
-    margin-top: 10px;
     border: 1px solid black;
     border-radius: 10px;
     background-color: rgb(181, 179, 179);
@@ -37,4 +35,5 @@
     border-radius: 10px;
     padding: 10px;
     border: none;
+    cursor: pointer;
 }

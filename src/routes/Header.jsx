@@ -4,7 +4,7 @@ import styles from './Header.module.css'
 export const Header = ({isLoggedin, logout}) => {
     return (
         <div className={styles.header}>
-            <h1>Employee App</h1>
+            <h1>Employee Dashboard</h1>
             
             {isLoggedin && <nav>
                 <ul style={{marginRight:"50px"}}>

@@ -4,14 +4,15 @@
       "id": "1",
       "name": "Aniket Kumar",
       "nationality": "India",
-      "role": "Team Leader",
-      "department": "Mobile Development",
+      "role": "UX/UI Designer",
+      "department": "Web Development",
       "salary": "4000",
       "startdate": "2015-08-01",
-      "location": "Pasila",
+      "location": "Hoplax",
       "email": "aniket.kumar@gmail.com",
       "phone": "+91324458889",
       "employmentType": "Full Time",
+      "teamLeader": true,
       "skills": [
         "JavaScript",
         "React",
@@ -23,8 +24,8 @@
     },
     {
       "id": "2",
-      "name": "Priyanka Kumari",
-      "nationality": "India",
+      "name": "Priyanka Bharti",
+      "nationality": "Kanada",
       "role": "Backend Development",
       "department": "Web Development",
       "salary": "3000",
@@ -40,13 +41,14 @@
         "CSS"
       ],
       "manager": "Saket Thakur",
-      "status": "Active"
+      "status": "Active",
+      "teamLeader": true
     },
     {
       "id": "3",
-      "name": "Nishu Kumari",
-      "nationality": "India",
-      "role": "Full Stack Development",
+      "name": "Nishu Goel",
+      "nationality": "U.S",
+      "role": "Full Stack Developer",
       "department": "Game Development",
       "salary": "3200",
       "startdate": "2014-11-28",
@@ -68,7 +70,7 @@
       "name": "Matti Samolainen",
       "nationality": "Finland",
       "role": "Frontend Developer",
-      "department": "ICT",
+      "department": "Web Development",
       "salary": "3600",
       "startdate": "2020-06-02",
       "location": "Vantaa",
@@ -81,14 +83,15 @@
         "Node.js"
       ],
       "manager": "Rikala Mäkinen",
-      "status": "Active"
+      "status": "Active",
+      "teamLeader": false
     },
     {
       "id": "5",
-      "name": "Linda River",
+      "name": "Shivani Joshi",
       "nationality": "Astonia",
-      "role": "Frontend Developer",
-      "department": "ICT",
+      "role": "Backend Developer",
+      "department": "Game Development",
       "salary": "1700",
       "startdate": "2024-9-16",
       "location": "Ruoholahti",
@@ -205,19 +208,23 @@
       "status": "Active"
     },
     {
-      "id": "2674",
+      "id": "abd2",
       "name": "Gayatri Kumari",
-      "role": "Backend Developer",
-      "nationality": "Indian",
-      "department": "Mobile Development",
-      "salary": "3000",
-      "startdate": "2019-07-12",
-      "location": "Mumbai",
+      "role": "Frontend Developer Teacher",
+      "nationality": "India",
+      "department": "Web Development",
+      "salary": "4600",
+      "startdate": "2024-10-16",
+      "location": "Rovaniemi",
       "email": "gayatri.kumari234@gmail.com",
       "phone": "2334455676",
-      "employmentType": "Contract",
-      "skills": "Python, node, java, c++",
-      "manager": "Rakesh Sharma"
+      "skills": [
+        "Python",
+        " node",
+        " Uipath",
+        " c++"
+      ],
+      "manager": "Uttam Kumar"
     }
   ]
 }

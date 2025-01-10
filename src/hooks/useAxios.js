@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-const useAxiosRequest = (baseUrl) => {
+const useAxios = (baseUrl) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -42,4 +42,4 @@ const useAxiosRequest = (baseUrl) => {
     return { data, loading, error, create, read, update, remove };
 };
 
-export default useAxiosRequest;
+export default useAxios;
