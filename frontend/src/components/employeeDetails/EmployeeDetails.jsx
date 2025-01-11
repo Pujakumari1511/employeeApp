@@ -7,7 +7,7 @@ import { useScrollToTop } from "../../hooks/useScrollToTop";
 
 
 export const EmployeeDetails = ({}) => {  // employee details component
-    const { data: employee, read } = useAxios("http://localhost:3001");
+    const { data: employee, read } = useAxios();
     
     const { id } = useParams();
     const navigate = useNavigate();
@@ -43,13 +43,13 @@ export const EmployeeDetails = ({}) => {  // employee details component
                     </div>
                     <div className={styles.employeeBody}>
                         <table className={styles.tableData}>
+                            <tbody>
                                 <tr>
                                     <th>Department</th>
                                     <td>{employee.department}</td>
                                     <th>Work location</th>
                                     <td>{employee.location}</td>
                                 </tr>
-                            <tbody>
                                 <tr>
                                     <th>Manager</th>
                                     <td>{employee.manager}</td>

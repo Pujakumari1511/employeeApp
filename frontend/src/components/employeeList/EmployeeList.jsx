@@ -5,7 +5,7 @@ import useAxios from "../../hooks/useAxios";
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
 export function EmployeeList() {
-    const { data: employee, loading, read } = useAxios("http://localhost:3001");  // custom hook for axios
+    const { data: employee, loading, read } = useAxios();  // custom hook for axios
     const [fetchEmployees, setFetchEmployees] = useState(false);  // state for fetching employees
 
     const reFetchEmployees = () => { 

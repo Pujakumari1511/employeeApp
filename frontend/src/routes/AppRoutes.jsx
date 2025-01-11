@@ -24,6 +24,7 @@ export const Router = createBrowserRouter([
 
 {
     future: {
+        v7_startTransition: true,
         v7_relativeSplatPath: true,
         v7_fetcherPersist: true,
         v7_normalizeFormMethod: true,

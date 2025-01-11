@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-const useAxios = (baseUrl) => {
+const useAxios = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ const useAxios = (baseUrl) => {
         try {
             const response = await axios({
                 method,
-                url: `${baseUrl}${url}`,
+                url: `/api${url}`,
                 data: body,
                 headers,
             });
@@ -25,7 +25,7 @@ const useAxios = (baseUrl) => {
         } finally {
             setLoading(false);
         }
-    }, [baseUrl]);
+    }, []);
 
     const create = (url, body, headers = {}) =>
         request({ method: "POST", url, body, headers });

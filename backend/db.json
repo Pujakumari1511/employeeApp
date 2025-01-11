@@ -126,7 +126,8 @@
         "CSS"
       ],
       "manager": "Päivi saarinen",
-      "status": "Active"
+      "status": "Active",
+      "teamLeader": false
     },
     {
       "id": "7",
@@ -165,7 +166,8 @@
         "Adobe XD"
       ],
       "manager": "Jani Karpekka",
-      "status": "Active"
+      "status": "Active",
+      "teamLeader": false
     },
     {
       "id": "9",

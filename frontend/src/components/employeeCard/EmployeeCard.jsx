@@ -33,7 +33,7 @@ const EmployeeCard = ({employee, reFetchEmployees}) => {  // employee card compo
 
   const { yearPassed, monthPassed, isProbationPeriod, isRecognitionYear } = useEmployeeStatus(employee.startdate);  // custom hook for employee status
 
-  const {update} = useAxios("http://localhost:3001");  // custom hook for axios
+  const {update} = useAxios();  // custom hook for axios
 
   const handleSubmit = () => {  // handle submit for editing card details
     if(isEditingForm){

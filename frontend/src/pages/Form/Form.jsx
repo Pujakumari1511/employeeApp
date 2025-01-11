@@ -3,8 +3,10 @@ import styles from './Form.module.css'
 import axios from 'axios';
 import Button from "../../components/buttons/Button";
 import { useScrollToTop } from "../../hooks/useScrollToTop";
+import useAxios from "../../hooks/useAxios";
 
 export const Form = ({}) => {  // form component for add new employee
+    const { create } = useAxios();
     const [formData, setFormData] = useState({  
         name: "",
         role: "",
@@ -33,10 +35,11 @@ export const Form = ({}) => {  // form component for add new employee
 
     const addEmployee = (data) => {  // add employee
         console.log(data);
-        axios.post("http://localhost:3001/employees", data, {
+        create("/employees", data, {
             headers: {
-              'Content-Type': 'application/json'
-            }})
+                'Content-Type': 'application/json'
+              }
+        })
         .then(() => {
             setFormData({
                 name: "",
