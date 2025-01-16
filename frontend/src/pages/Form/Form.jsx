@@ -60,9 +60,9 @@ export const Form = ({}) => {  // form component for add new employee
     }
     
     return (
-        <div>
+        <div className={styles.formContainer}>
 
-            <form className={styles.formContainer}  onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.formRow}>
                     <label>Enter your name:</label><br />
                     <input name="name" value={formData.name} onChange={handleChange} type="text" />

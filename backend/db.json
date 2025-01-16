@@ -207,7 +207,8 @@
         "Adobe XD"
       ],
       "manager": "Jani Karpekka",
-      "status": "Active"
+      "status": "Active",
+      "teamLeader": true
     },
     {
       "id": "abd2",

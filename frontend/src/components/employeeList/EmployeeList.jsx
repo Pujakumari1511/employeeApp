@@ -19,7 +19,7 @@ export function EmployeeList() {
 
     return (
         <div> 
-            <div className={`${styles.employeeList} ${styles.employee}`}>
+            <div className={styles.employeeList}>
                 {loading ? (
                     <p>Loading...</p>
                 ) : (

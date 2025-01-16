@@ -1,8 +1,7 @@
 .loginContainer {
     display: flex;
     justify-content: center;  
-    align-items: center;
-    height: 65vh; 
+    height: 100vh; 
 }
 
 .loginForm {
@@ -11,7 +10,7 @@
     border-radius: 10px;
     position: fixed;
     padding: 10px;
-    height: 284px;
+    height: 250px;
     align-content: center;
 }
 
@@ -23,17 +22,17 @@
     top: 5%;
 }
 
-.loginContainer label {
-    width: 300px;
-    padding-right: 20px;
-}
-
 .loginContainer input {
-    width: 300px;
+    width: 250px;
     height: 40px;
     margin: 20px;
     color: #333;
     border: none;
+
+    @media screen and (max-width: 400px) {
+        width: 200px;
+        
+    }
 }
 
 .loginContainer button {
