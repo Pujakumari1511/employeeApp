@@ -209,25 +209,6 @@
       "manager": "Jani Karpekka",
       "status": "Active",
       "teamLeader": true
-    },
-    {
-      "id": "abd2",
-      "name": "Gayatri Kumari",
-      "role": "Frontend Developer Teacher",
-      "nationality": "India",
-      "department": "Web Development",
-      "salary": "4600",
-      "startdate": "2024-10-16",
-      "location": "Rovaniemi",
-      "email": "gayatri.kumari234@gmail.com",
-      "phone": "2334455676",
-      "skills": [
-        "Python",
-        " node",
-        " Uipath",
-        " c++"
-      ],
-      "manager": "Uttam Kumar"
     }
   ]
 }
